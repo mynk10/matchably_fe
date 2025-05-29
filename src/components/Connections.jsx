@@ -6,7 +6,6 @@ import { addConnection } from "../utils/connectionSlice";
 
 const Connections = () => {
   const connections = useSelector((store) => store.connection);
-  console.log(connections);
   const dispatch = useDispatch();
   const getConnections = async () => {
     try {
@@ -37,7 +36,7 @@ const Connections = () => {
             <li className="list-row">
               <div>
                 <img
-                  className="size-10 rounded-box"
+                  className="size-20 rounded-box"
                   src={connection.photoURL}
                 />
               </div>
@@ -46,8 +45,10 @@ const Connections = () => {
                 <div className="text-xs uppercase font-semibold opacity-60">
                   {connection.age + ", " + connection.gender}
                 </div>
+                <p className="list-col-wrap text-xs">
+                  {connection.description}
+                </p>
               </div>
-              <p className="list-col-wrap text-xs">{connection.description}</p>
             </li>
           </div>
         ))}
