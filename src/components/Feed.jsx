@@ -26,6 +26,8 @@ const Feed = () => {
     getFeed();
   }, []);
 
+  if (feed == 0) return "no user is currently availabe ";
+
   return (
     feed && (
       <div className="flex justify-center my-10">
