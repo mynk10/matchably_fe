@@ -37,49 +37,54 @@ const Requests = () => {
   if (requests == 0) return <h1>No request found</h1>;
 
   return (
-    <div className=" flex justify-center mt-10 ">
-      <ul className="list bg-base-200 rounded-box shadow-md">
-        <li className="p-4 pb-2 text-2xl opacity-60 tracking-wide">Requests</li>
+    <div className="flex justify-center mt-10">
+      <ul className="bg-[#DCDCDD] rounded-xl shadow-md w-full max-w-2xl p-4">
+        <li className="pb-4 text-2xl font-semibold tracking-wide text-[#4C5C68] border-b border-[#C5C3C6]">
+          Requests
+        </li>
+
         {requests.map((request) => (
-          <div key={request._id}>
-            <li className="list-row">
-              <div>
-                <img
-                  className="size-20 rounded-box"
-                  src={request.fromUserId.photoURL}
-                />
+          <li
+            key={request._id}
+            className="flex flex-wrap md:flex-nowrap items-center gap-4 py-4 border-b border-[#C5C3C6] last:border-none"
+          >
+            <img
+              className="w-20 h-20 rounded-lg object-cover border border-[#C5C3C6]"
+              src={request.fromUserId.photoURL}
+              alt="user"
+            />
+
+            <div className="flex flex-col flex-grow">
+              <div className="text-lg font-medium text-[#46494C]">
+                {request.fromUserId.firstName +
+                  " " +
+                  request.fromUserId.lastName}
               </div>
-              <div>
-                <div>
-                  {request.fromUserId.firstName +
-                    " " +
-                    request.fromUserId.lastName}
-                </div>
-                <div className="text-xs uppercase font-semibold opacity-60">
-                  {request.fromUserId.age &&
-                    request.fromUserId.gender &&
-                    request.fromUserId.age + ", " + request.fromUserId.gender}
-                </div>
-                <p className="list-col-wrap text-xs">
-                  {request.fromUserId.description}
-                </p>
+              <div className="text-xs font-semibold uppercase text-[#4C5C68] mt-1">
+                {request.fromUserId.age && request.fromUserId.gender
+                  ? `${request.fromUserId.age}, ${request.fromUserId.gender}`
+                  : null}
               </div>
-              <div className="justify-center">
-                <button
-                  className="btn btn-secondary mx-1"
-                  onClick={() => reviewRequest("accepted", request._id)}
-                >
-                  Accept
-                </button>
-                <button
-                  className="btn btn-primary mx-1"
-                  onClick={() => reviewRequest("rejected", request._id)}
-                >
-                  Reject
-                </button>
-              </div>
-            </li>
-          </div>
+              <p className="text-sm text-[#46494C] mt-1">
+                {request.fromUserId.description}
+              </p>
+            </div>
+
+            <div className="flex gap-2 justify-center mt-2 md:mt-0">
+              <button
+                className="bg-[#1985A1] text-white px-4 py-1 rounded-lg hover:bg-[#15758e] transition"
+                onClick={() => reviewRequest("accepted", request._id)}
+              >
+                Accept
+              </button>
+              <button
+                className="bg-[#4C5C68] text-white px-4 py-1 rounded-lg hover:bg-[#3b4b5a] transition"
+                onClick={() => reviewRequest("rejected", request._id)}
+              >
+                Reject
+              </button>
+            </div>
+          </li>
         ))}
       </ul>
     </div>

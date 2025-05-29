@@ -54,7 +54,7 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#DCDCDD]">
-      <fieldset className="w-full max-w-sm bg-white border border-[#C5C3C6] rounded-2xl shadow-lg p-6 space-y-4">
+      <fieldset className="w-full max-w-sm bg-white border border-[#C5C3C6] rounded-2xl shadow-lg p-6 space-y-4 mb-30">
         <legend className="text-3xl font-semibold text-center text-[#4C5C68] mb-4">
           {islogin ? "Login" : "Signup"}
         </legend>

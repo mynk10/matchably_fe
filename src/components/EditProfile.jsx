@@ -34,74 +34,81 @@ const EditProfile = ({ user }) => {
   };
   return (
     <>
-      <div className="flex justify-center ">
+      <div className="flex flex-col md:flex-row justify-center items-start gap-6 p-4 bg-[#DCDCDD] text-[#46494C]">
         <div>
-          <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4 mx-5 mt-2">
-            <legend className="fieldset-legend text-2xl">Update Profile</legend>
+          <fieldset className="rounded-xl w-80 border border-[#C5C3C6] p-6 bg-white shadow-md">
+            <legend className="text-2xl font-semibold mb-4 text-[#4C5C68]">
+              Update Profile
+            </legend>
 
-            <label className="label my-2">First Name: </label>
+            <label className="block mt-2 font-medium text-sm">
+              First Name:
+            </label>
             <input
-              type="string"
+              type="text"
               value={firstName}
-              className="input "
+              className="w-full px-3 py-2 mt-1 rounded-md border border-[#C5C3C6] focus:outline-none focus:ring-2 focus:ring-[#1985A1]"
               onChange={(e) => setFirstName(e.target.value)}
             />
 
-            <label className="label my-2">Last Name: </label>
+            <label className="block mt-3 font-medium text-sm">Last Name:</label>
             <input
-              type="string"
+              type="text"
               value={lastName}
-              className="input "
+              className="w-full px-3 py-2 mt-1 rounded-md border border-[#C5C3C6] focus:outline-none focus:ring-2 focus:ring-[#1985A1]"
               onChange={(e) => setlastName(e.target.value)}
             />
-            <label className="label my-2">Age: </label>
+
+            <label className="block mt-3 font-medium text-sm">Age:</label>
             <input
-              type="string"
+              type="text"
               value={age}
-              className="input "
+              className="w-full px-3 py-2 mt-1 rounded-md border border-[#C5C3C6] focus:outline-none focus:ring-2 focus:ring-[#1985A1]"
               onChange={(e) => setAge(e.target.value)}
             />
-            <label className="label my-2">Gender: </label>
-            {/* <input
-              type="string"
-              value={gender}
-              className="input "
-              onChange={(e) => setGender(e.target.value)}
-            /> */}
+
+            <label className="block mt-3 font-medium text-sm">Gender:</label>
             <select
-              className="select "
+              className="w-full px-3 py-2 mt-1 rounded-md border border-[#C5C3C6] bg-white focus:outline-none focus:ring-2 focus:ring-[#1985A1]"
               required
               value={gender}
               onChange={(e) => setGender(e.target.value)}
             >
-              <option disabled selected value=" ">
+              <option disabled value=" ">
                 Select gender
               </option>
               <option value="male">Male</option>
               <option value="female">Female</option>
               <option value="other">Others</option>
             </select>
-            <label className="label my-2">About: </label>
+
+            <label className="block mt-3 font-medium text-sm">About:</label>
             <input
-              type="string"
+              type="text"
               value={description}
-              className="input "
+              className="w-full px-3 py-2 mt-1 rounded-md border border-[#C5C3C6] focus:outline-none focus:ring-2 focus:ring-[#1985A1]"
               onChange={(e) => setDescription(e.target.value)}
             />
-            <label className="label my-2">Photo URL: </label>
+
+            <label className="block mt-3 font-medium text-sm">Photo URL:</label>
             <input
-              type="string"
+              type="text"
               value={photoURL}
-              className="input "
+              className="w-full px-3 py-2 mt-1 rounded-md border border-[#C5C3C6] focus:outline-none focus:ring-2 focus:ring-[#1985A1]"
               onChange={(e) => setPhotoURL(e.target.value)}
             />
-            <p className="text-red-700 ">{error}</p>
 
-            <button className="btn btn-neutral mt-8" onClick={saveProfile}>
+            {error && <p className="text-red-600 text-sm mt-2">{error}</p>}
+
+            <button
+              className="w-full mt-6 bg-[#1985A1] text-white py-2 rounded-md hover:bg-[#4C5C68] transition"
+              onClick={saveProfile}
+            >
               Update Profile
             </button>
           </fieldset>
         </div>
+
         <UserCard
           user={{ firstName, lastName, age, gender, description, photoURL }}
         />
@@ -109,7 +116,7 @@ const EditProfile = ({ user }) => {
 
       {showTost && (
         <div className="toast toast-top toast-center">
-          <div className="alert alert-success">
+          <div className="alert alert-success shadow-md">
             <span>Profile updated successfully.</span>
           </div>
         </div>

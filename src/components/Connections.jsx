@@ -26,33 +26,39 @@ const Connections = () => {
   if (connections == 0) return <h1>No connections found</h1>;
 
   return (
-    <div className=" flex justify-center mt-10 ">
-      <ul className="list bg-base-200 rounded-box shadow-md">
-        <li className="p-4 pb-2 text-2xl opacity-60 tracking-wide">
-          My connections
+    <div className="flex justify-center mt-10">
+      <ul className="bg-[#DCDCDD] rounded-xl shadow-md w-full max-w-2xl p-4">
+        <li className="pb-4 text-2xl font-semibold tracking-wide text-[#4C5C68] border-b border-[#C5C3C6]">
+          My Connections
         </li>
+
         {connections.map((connection) => (
-          <div key={connection._id}>
-            <li className="list-row">
-              <div>
-                <img
-                  className="size-20 rounded-box"
-                  src={connection.photoURL}
-                />
+          <li
+            key={connection._id}
+            className="flex gap-4 items-start py-4 border-b border-[#C5C3C6] last:border-none"
+          >
+            <img
+              className="w-20 h-20 rounded-lg object-cover border border-[#C5C3C6]"
+              src={connection.photoURL}
+              alt="user"
+            />
+
+            <div className="flex flex-col">
+              <div className="text-lg font-medium text-[#46494C]">
+                {connection.firstName + " " + connection.lastName}
               </div>
-              <div>
-                <div>{connection.firstName + " " + connection.lastName}</div>
-                <div className="text-xs uppercase font-semibold opacity-60">
-                  {connection.age &&
-                    connection.gender &&
-                    connection.age + ", " + connection.gender}
-                </div>
-                <p className="list-col-wrap text-xs">
-                  {connection.description}
-                </p>
+
+              <div className="text-xs font-semibold uppercase text-[#4C5C68] mt-1">
+                {connection.age && connection.gender
+                  ? `${connection.age}, ${connection.gender}`
+                  : null}
               </div>
-            </li>
-          </div>
+
+              <p className="text-sm text-[#46494C] mt-1">
+                {connection.description}
+              </p>
+            </div>
+          </li>
         ))}
       </ul>
     </div>
