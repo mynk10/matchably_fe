@@ -19,12 +19,18 @@ const Navbar = () => {
   return (
     <div className="navbar bg-[#46494C] shadow-md px-4">
       <div className="flex-1">
-        <Link
-          to="/"
-          className="text-2xl font-bold text-white hover:text-[#1985A1] transition"
-        >
-          Matchably
-        </Link>
+        {user ? (
+          <Link
+            to="/"
+            className="text-2xl font-bold text-white hover:text-[#1985A1] transition"
+          >
+            Matchably
+          </Link>
+        ) : (
+          <div className="text-2xl font-bold text-white hover:text-[#1985A1] transition">
+            Matchably
+          </div>
+        )}
       </div>
 
       {user && (
