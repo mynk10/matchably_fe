@@ -25,7 +25,7 @@ const UserCard = ({ user }) => {
       <div className="card-body">
         <h2 className="card-title">{firstName + " " + lastName}</h2>
         <div>
-          {age && gender && <p> {age + " , " + gender}</p>}
+          {<p> {gender + " , " + age}</p>}
           <p> {description}</p>
         </div>
         <div className="card-actions justify-center ">

@@ -8,8 +8,8 @@ import { addUser } from "../utils/userSlice";
 const EditProfile = ({ user }) => {
   const [firstName, setFirstName] = useState(user.firstName);
   const [lastName, setlastName] = useState(user.lastName);
-  const [age, setAge] = useState(user.age);
-  const [gender, setGender] = useState(user.gender);
+  const [age, setAge] = useState(user.age || "");
+  const [gender, setGender] = useState(user.gender || "");
   const [description, setDescription] = useState(user.description);
   const [photoURL, setPhotoURL] = useState(user.photoURL);
   const [error, setError] = useState("");
@@ -62,12 +62,25 @@ const EditProfile = ({ user }) => {
               onChange={(e) => setAge(e.target.value)}
             />
             <label className="label my-2">Gender: </label>
-            <input
+            {/* <input
               type="string"
               value={gender}
               className="input "
               onChange={(e) => setGender(e.target.value)}
-            />
+            /> */}
+            <select
+              className="select "
+              required
+              value={gender}
+              onChange={(e) => setGender(e.target.value)}
+            >
+              <option disabled selected value=" ">
+                Select gender
+              </option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Others</option>
+            </select>
             <label className="label my-2">About: </label>
             <input
               type="string"

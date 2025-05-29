@@ -30,7 +30,7 @@ const Body = () => {
   }, []);
 
   return (
-    <div>
+    <div >
       <Navbar />
       <Outlet />
       <Footer />

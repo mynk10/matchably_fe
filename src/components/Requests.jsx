@@ -56,7 +56,9 @@ const Requests = () => {
                     request.fromUserId.lastName}
                 </div>
                 <div className="text-xs uppercase font-semibold opacity-60">
-                  {request.fromUserId.age + ", " + request.fromUserId.gender}
+                  {request.fromUserId.age &&
+                    request.fromUserId.gender &&
+                    request.fromUserId.age + ", " + request.fromUserId.gender}
                 </div>
                 <p className="list-col-wrap text-xs">
                   {request.fromUserId.description}

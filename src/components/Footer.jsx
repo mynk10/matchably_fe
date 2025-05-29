@@ -2,12 +2,16 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="footer footer-horizontal footer-center bg-primary text-primary-content p-2 fixed bottom-0">
-      <aside>
-        <p className="font-bold ">Matchably.</p>
-        <p>Copyright © {new Date().getFullYear()} - All right reserved</p>
-      </aside>
-    </footer>
+    
+    <footer className="footer footer-horizontal footer-center fixed bottom-0 bg-[#46494C] text-white p-4 mt-10 rounded-t-lg shadow-inner">
+  <aside>
+    <p className="font-bold text-lg text-[#1985A1]">Matchably</p>
+    <p className="text-sm text-[#C5C3C6]">
+      © {new Date().getFullYear()} – All rights reserved
+    </p>
+  </aside>
+</footer>
+
   );
 };
 

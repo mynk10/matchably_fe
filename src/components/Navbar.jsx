@@ -17,43 +17,63 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-base-300 shadow-sm">
+    <div className="navbar bg-[#46494C] shadow-md px-4">
       <div className="flex-1">
-        <Link to="/" className="btn btn-ghost text-xl">
+        <Link
+          to="/"
+          className="text-2xl font-bold text-white hover:text-[#1985A1] transition"
+        >
           Matchably
         </Link>
       </div>
 
       {user && (
-        <div className="flex gap-2">
+        <div className="flex gap-3 items-center">
           <div className="dropdown dropdown-end">
             <div
               tabIndex={0}
               role="button"
-              className="btn btn-ghost btn-circle avatar"
+              className="btn btn-ghost btn-circle avatar hover:bg-[#4C5C68]"
             >
-              <div className="w-10 rounded-full">
-                <img alt="Tailwind CSS Navbar component" src={user.photoURL} />
+              <div className="w-10 rounded-full border-2 border-[#1985A1]">
+                <img alt="User avatar" src={user.photoURL} />
               </div>
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content mt-3 z-[1] w-52 p-2 shadow-lg rounded-lg bg-white border border-[#C5C3C6]"
             >
               <li>
-                <Link to="/profile">
+                <Link
+                  to="/profile"
+                  className="text-[#4C5C68] hover:text-[#1985A1]"
+                >
                   Profile
-                  {/* <span className="badge">New</span> */}
                 </Link>
               </li>
               <li>
-                <Link to="/connections">My Connections</Link>
+                <Link
+                  to="/connections"
+                  className="text-[#4C5C68] hover:text-[#1985A1]"
+                >
+                  My Connections
+                </Link>
               </li>
               <li>
-                <Link to="/requests">Connection Requests</Link>
+                <Link
+                  to="/requests"
+                  className="text-[#4C5C68] hover:text-[#1985A1]"
+                >
+                  Connection Requests
+                </Link>
               </li>
               <li>
-                <a onClick={handleLogout}>Logout</a>
+                <a
+                  onClick={handleLogout}
+                  className="text-[#4C5C68] hover:text-red-600 transition"
+                >
+                  Logout
+                </a>
               </li>
             </ul>
           </div>

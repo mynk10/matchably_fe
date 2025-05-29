@@ -43,7 +43,9 @@ const Connections = () => {
               <div>
                 <div>{connection.firstName + " " + connection.lastName}</div>
                 <div className="text-xs uppercase font-semibold opacity-60">
-                  {connection.age + ", " + connection.gender}
+                  {connection.age &&
+                    connection.gender &&
+                    connection.age + ", " + connection.gender}
                 </div>
                 <p className="list-col-wrap text-xs">
                   {connection.description}
