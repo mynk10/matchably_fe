@@ -33,19 +33,21 @@ const UserCard = ({ user }) => {
         </h2>
 
         <div className="text-sm text-[#4C5C68]">
-          <p>{gender + ", " + age}</p>
+          <p className="text-xs font-semibold uppercase">
+            {gender + ", " + age}
+          </p>
           <p className="mt-1">{description}</p>
         </div>
 
         <div className="card-actions justify-center mt-4 gap-2">
           <button
-            className="px-4 py-2 bg-[#1985A1] text-white rounded-md hover:bg-[#4C5C68] transition"
+            className="px-4 py-2 bg-[#1985A1] text-white rounded-md hover:bg-[#1986a1d0] transition"
             onClick={() => handleSendRequest("interested", _id)}
           >
             Interested
           </button>
           <button
-            className="px-4 py-2 bg-[#4C5C68] text-white rounded-md hover:bg-[#1985A1] transition"
+            className="px-4 py-2 bg-[#4C5C68] text-white rounded-md hover:bg-[#4c5c68cb] transition"
             onClick={() => handleSendRequest("ignored", _id)}
           >
             Ignore

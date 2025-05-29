@@ -25,7 +25,7 @@ const Feed = () => {
     getFeed();
   }, []);
 
-  if (feed == 0) return "no user is currently availabe ";
+  if (feed == 0) return <div className="flex justify-center textarea-md font-semibold m-10">no user is currently availabe</div>;
 
   return (
     feed && (

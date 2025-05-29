@@ -22,8 +22,18 @@ const Connections = () => {
     getConnections();
   }, []);
 
-  if (!connections) return "loading...";
-  if (connections == 0) return <h1>No connections found</h1>;
+  if (!connections)
+    return (
+      <div className="flex justify-center textarea-md font-semibold m-10">
+        loading...
+      </div>
+    );
+  if (connections == 0)
+    return (
+      <div className="flex justify-center textarea-md font-semibold m-10">
+        No connections found
+      </div>
+    );
 
   return (
     <div className="flex justify-center mt-10">

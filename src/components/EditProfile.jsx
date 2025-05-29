@@ -59,14 +59,6 @@ const EditProfile = ({ user }) => {
               onChange={(e) => setlastName(e.target.value)}
             />
 
-            <label className="block mt-3 font-medium text-sm">Age:</label>
-            <input
-              type="text"
-              value={age}
-              className="w-full px-3 py-2 mt-1 rounded-md border border-[#C5C3C6] focus:outline-none focus:ring-2 focus:ring-[#1985A1]"
-              onChange={(e) => setAge(e.target.value)}
-            />
-
             <label className="block mt-3 font-medium text-sm">Gender:</label>
             <select
               className="w-full px-3 py-2 mt-1 rounded-md border border-[#C5C3C6] bg-white focus:outline-none focus:ring-2 focus:ring-[#1985A1]"
@@ -74,13 +66,21 @@ const EditProfile = ({ user }) => {
               value={gender}
               onChange={(e) => setGender(e.target.value)}
             >
-              <option disabled value=" ">
+              <option disabled value="">
                 Select gender
               </option>
               <option value="male">Male</option>
               <option value="female">Female</option>
               <option value="other">Others</option>
             </select>
+
+            <label className="block mt-3 font-medium text-sm">Age:</label>
+            <input
+              type="text"
+              value={age}
+              className="w-full px-3 py-2 mt-1 rounded-md border border-[#C5C3C6] focus:outline-none focus:ring-2 focus:ring-[#1985A1]"
+              onChange={(e) => setAge(e.target.value)}
+            />
 
             <label className="block mt-3 font-medium text-sm">About:</label>
             <input

@@ -33,8 +33,18 @@ const Requests = () => {
   useEffect(() => {
     getRequests();
   }, []);
-  if (!requests) return "loading...";
-  if (requests == 0) return <h1>No request found</h1>;
+  if (!requests)
+    return (
+      <div className="flex justify-center textarea-md font-semibold m-10">
+        loading...
+      </div>
+    );
+  if (requests == 0)
+    return (
+      <div className="flex justify-center textarea-md font-semibold m-10">
+        No request found
+      </div>
+    );
 
   return (
     <div className="flex justify-center mt-10">
